@@ -27,10 +27,28 @@ public class MainWrapper {
     byte smallNum = (byte)bigNum;  // 4바이트 bigNum을 강제로 1바이트로 변환
     System.out.println(smallNum);
     
+    double pct = 0.5;
+    int iPct = (int)pct;  // 실수를 강제로 정수로 변환(소수점 잘려나간다.)
+    System.out.println(iPct);
     
+    /*
+     * 구문 분석(parsing)
+     * 1. 문자열 -> 정수(int, long)
+     * 2. 문자열 -> 실수(double)
+     */
     
+    String strScore = "100";
+    int score = Integer.parseInt(strScore);
     
+    String strMoney = "10000000000";
+    long money = Long.parseLong(strMoney);
     
+    String strComm = "0.5";
+    double comm = Double.parseDouble(strComm);
+    
+    System.out.println(score);
+    System.out.println(money);
+    System.out.println(comm);
     
   }
   
