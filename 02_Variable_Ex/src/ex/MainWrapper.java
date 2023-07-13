@@ -17,7 +17,7 @@ public class MainWrapper {
     //    x -----▶y
     //    ▲      │
     //    │      │①
-    //  ③ │      │
+    //  3 │      │
     //    │      ▼
     //    └------temp
     int x = 10;
