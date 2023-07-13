@@ -45,7 +45,9 @@ public class MainWrapper {
   int nDay = 10;  // 10일
   String weekname;  // "월", "화", "수", "목", "금", "토", "일"
   
-
+  // 대소문자 변환 (구글링으로 아스키코드 검색 후 참고)
+  char ch = 'A';  // 임의의 대문자 또는 소문자
+  
   
   public static void ex01() {
     
