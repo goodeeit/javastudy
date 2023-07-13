@@ -12,6 +12,14 @@ public class MainWrapper {
 
     
     // x와 y값을 교환
+    //
+    //        ②
+    //    x -----▶y
+    //    ▲      │
+    //    │      │①
+    // ③ │      │
+    //    │      ▼
+    //    └------temp
     int x = 10;
     int y = 20;
     int temp;
