@@ -1,5 +1,7 @@
 package ex01_one_dim;
 
+import java.util.Arrays;
+
 public class MainWrapper {
     
   /*
@@ -236,20 +238,13 @@ public class MainWrapper {
      *    └--------------┘
      */
     
-    // 배열 a 확인
-    
-    
+    // 배열 a 확인 (단순 조회는 Java의 기능을 이용할 수 있다.)
+    System.out.println(Arrays.toString(a));
     
   }
   
-  
-  
-  
-  
-  
-  
   public static void main(String[] args) {
-    ex07();
+    ex08();
   }
 
 }
