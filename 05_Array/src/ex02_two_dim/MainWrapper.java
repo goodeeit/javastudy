@@ -139,18 +139,48 @@ public class MainWrapper {
    *     │              │
    *     └--------------┘
    */
+  public static void ex05() {
+    
+    // 2차원 배열의 초기화
+    int[][] a = {
+        {10, 20},
+        {30, 40},
+        {50, 60}
+    };
+    
+    // 2차원 배열의 2중 for문 최종 버전
+    for(int i = 0; i < a.length; i++) {
+      for(int j = 0; j < a[i].length; j++) {
+        System.out.print(String.format("%4d", a[i][j]));
+      }
+      System.out.println();
+    }
+    
+  }
   
+  public static void ex06() {
+    
+    // 모든 열의 갯수가 동일할 필요는 없다.
+    
+    // 2차원 배열의 초기화
+    int[][] a = {
+        {10},
+        {20, 30},
+        {40, 50, 60}
+    };
+    
+    // 2차원 배열의 2중 for문 최종 버전
+    for(int i = 0; i < a.length; i++) {
+      for(int j = 0; j < a[i].length; j++) {
+        System.out.print(String.format("%4d", a[i][j]));
+      }
+      System.out.println();
+    }
+    
+  }
   
   public static void main(String[] args) {
-    ex04();
+    ex06();
   }
 
 }
-
-
-
-
-
-
-
-
