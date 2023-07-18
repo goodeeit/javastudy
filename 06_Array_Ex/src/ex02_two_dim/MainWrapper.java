@@ -4,15 +4,34 @@ public class MainWrapper {
 
   public static void ex01() {
     // 2~9단까지 전체 구구단 결과 저장하고 출력하기
-    //  2   4   6   8  10  12  14  16  18
-    //  3   6   9  12  15  18  21  24  27
-    //  4   8  12  16  20  24  28  32  36
-    //  5  10  15  20  25  30  35  40  45
-    //  6  12  18  24  30  36  42  48  54
-    //  7  14  21  28  35  42  49  56  63
-    //  8  16  24  32  40  48  56  64  72
-    //  9  18  27  36  45  54  63  72  81
+    //      0   1   2   3   4   5   6   7   8 <--- j
+    //  i
+    //  0   2   4   6   8  10  12  14  16  18
+    //  1   3   6   9  12  15  18  21  24  27
+    //  2   4   8  12  16  20  24  28  32  36
+    //  3   5  10  15  20  25  30  35  40  45
+    //  4   6  12  18  24  30  36  42  48  54
+    //  5   7  14  21  28  35  42  49  56  63
+    //  6   8  16  24  32  40  48  56  64  72
+    //  7   9  18  27  36  45  54  63  72  81
     int[][] gugudan = new int[8][9];
+    /*
+    gugudan[0][0] = 2 * 1;
+    gugudan[0][1] = 2 * 2;
+    gugudan[0][2] = 2 * 3;
+    gugudan[1][0] = 3 * 1;
+    gugudan[1][1] = 3 * 2;
+    gugudan[1][2] = 3 * 3;
+    ----------------------
+    gugudan[i][j] = (i + 2) * (j + 1);
+    */
+    for(int i = 0; i < gugudan.length; i++) {
+      for(int j = 0; j < gugudan[i].length; j++) {
+        gugudan[i][j] = (i + 2) * (j + 1);
+        System.out.print(String.format("%4d", gugudan[i][j]));
+      }
+      System.out.println();
+    }
     
   }
   
@@ -35,7 +54,17 @@ public class MainWrapper {
         {3, 5},  // 401호, 402호
         {4, 4}   // 501호, 502호
     };
-    
+    // apt[0][0] = 101호 = 3
+    // apt[0][1] = 102호 = 4
+    // apt[1][0] = 201호 = 2
+    // apt[1][1] = 202호 = 2
+    // ---------------------
+    // apt[i][j] = ((i + 1) * 100) + (j + 1)
+    for(int i = 0; i < apt.length; i++) {
+      for(int j = 0; j < apt[i].length; j++) {
+        System.out.println(((i + 1) * 100) + (j + 1) + "호: " + apt[i][j] + "명");
+      }
+    }
   }
   
   public static void ex03() {
@@ -98,7 +127,7 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    
+    ex02();
   }
 
 }

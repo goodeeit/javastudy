@@ -99,31 +99,33 @@ public class MainWrapper {
     total = total + score[3];
     total = total + score[4];
     
-    if(max < score[1]) { max = score[1]; }
-    if(max < score[2]) { max = score[2]; }
-    if(max < score[3]) { max = score[3]; }
-    if(max < score[4]) { max = score[4]; }
+    if(max < score[1]) { max = score[1]; top = 1; }
+    if(max < score[2]) { max = score[2]; top = 2; }
+    if(max < score[3]) { max = score[3]; top = 3; }
+    if(max < score[4]) { max = score[4]; top = 4; }
     
-    if(min > score[1]) { min = score[1]; }
-    if(min > score[2]) { min = score[2]; }
-    if(min > score[3]) { min = score[3]; }
-    if(min > score[4]) { min = score[4]; }
+    if(min > score[1]) { min = score[1]; bottom = 1; }
+    if(min > score[2]) { min = score[2]; bottom = 2; }
+    if(min > score[3]) { min = score[3]; bottom = 3; }
+    if(min > score[4]) { min = score[4]; bottom = 4; }
     */
     
     for(int i = 1; i < score.length; i++) {
       total = total + score[i];
       if(max < score[i]) {
         max = score[i];
+        top = i;
       }
       if(min > score[i]) {
         min = score[i];
+        bottom = i;
       }
     }
     System.out.println("평균: " + (double)total / score.length);  // 합계/갯수
     System.out.println("최댓값: " + max);
     System.out.println("최솟값: " + min);
-    System.out.println("1등: " + ??);  // 미희
-    System.out.println("5등: " + ??);  // 정숙
+    System.out.println("1등: " + name[top]);  // 미희
+    System.out.println("5등: " + name[bottom]);  // 정숙
   }
   
   public static void main(String[] args) {
