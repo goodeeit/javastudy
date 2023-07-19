@@ -11,9 +11,15 @@ public class MainWrapper2 {
    */
   
   public static void main(String[] args) {
-    print(10);  // 정수를 출력하고 싶은 print 메소드
-    print(1.5);  // 실수를 출력하고 싶은 print 메소드
+    print(10);      // 정수를 1개 출력하고 싶은 print 메소드
+    print(1.5);     // 실수를 1개 출력하고 싶은 print 메소드
     print(10, 20);  // 정수를 2개 출력하고 싶은 print 메소드
+    print(1.5, 1.2);// 실수를 2개 출력하고 싶은 print 메소드
+  }
+  
+  public static void print(double a, double b) {
+    print(a);  // 실수를 1개 출력하고 싶은 print 메소드
+    print(b);  // 실수를 1개 출력하고 싶은 print 메소드
   }
   
   public static void print(int a, int b) {
