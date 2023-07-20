@@ -9,7 +9,7 @@ public class MainWrapper {
     song.setTitle("호랑나비");
     song.setGenre("댄스");
     song.setPlayTime(3.5);
-    
+       
     song.info();  // 제목: 호랑나비, 장르: 댄스, 재생시간: 3.5분
     
     Singer singer = new Singer();
