@@ -25,14 +25,14 @@ public class Watch {
   private int second;
   
   // Setter
-  public void setHour(int param) {
-    hour = param;
+  public void setHour(int hour) {
+    this.hour = hour;
   }
-  public void setMinute(int param) {
-    minute = param;
+  public void setMinute(int minute) {
+    this.minute = minute;
   }
-  public void setSecond(int param) {
-    second = param;
+  public void setSecond(int second) {
+    this.second = second;
   }
   
   // Getter

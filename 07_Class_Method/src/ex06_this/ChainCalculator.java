@@ -20,17 +20,51 @@ public class ChainCalculator {
    */
   private double value;
   
-  
   public void printThis() {
-    System.out.println("현재 객체(printThis 메소드를 호출한 객체)의 참조값: " + this);
+    System.out.println("printThis 메소드를 호출한 객체의 참조값: " + this);
   }
   
+  // Setter
+  public void setValue(double value) {
+    this.value = value;
+  }
   
+  // Getter
+  public double getValue() {
+    return value;
+  }
   
+  public ChainCalculator on() {
+    System.out.print(value);
+    return this;
+  }
   
+  public ChainCalculator addition(double a) {
+    value += a;
+    System.out.print("+" + a);
+    return this;
+  }
   
+  public ChainCalculator subtraction(double a) {
+    value -= a;
+    System.out.print("-" + a);
+    return this;
+  }
   
+  public ChainCalculator multiplication(double a) {
+    value *= a;
+    System.out.print("*" + a);
+    return this;
+  }
   
+  public ChainCalculator division(double a) {
+    value /= a;
+    System.out.print("/" + a);
+    return this;
+  }
   
+  public void done() {
+    System.out.println("=" + value);
+  }
   
 }

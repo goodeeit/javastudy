@@ -70,11 +70,11 @@ public class BankAccount {
   }
   
   // Setter
-  public void setBalance(long param) {
-    balance = param;
+  public void setBalance(long balance) {
+    this.balance = balance;
   }
-  public void setAccNo(String param) {
-    accNo = param;
+  public void setAccNo(String accNo) {
+    this.accNo = accNo;
   }
   
   // Getter

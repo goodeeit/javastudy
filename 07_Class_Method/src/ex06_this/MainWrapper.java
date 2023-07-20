@@ -14,6 +14,14 @@ public class MainWrapper {
     // 여기서 확인된 this값은 myCalc 객체의 참조값과 같다.
     myCalc.printThis();
 
+    // addition 메소드의 체이닝
+    // myCalc.addition(3).addition(2);  // myCalc.addition(3) 실행 후 myCalc.addition(2)를 실행한다.
+    
+    // myCalc 메소드 체이닝
+    myCalc.on().addition(3).subtraction(2).multiplication(5).division(2).done();
+    
+    // 0.0+3.0-2.0*5.0/2.0=2.5
+    
   }
 
 }
