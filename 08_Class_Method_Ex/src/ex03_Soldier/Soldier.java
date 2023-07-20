@@ -4,6 +4,10 @@ public class Soldier {
 
   private Gun gun;
   
+  public Soldier(Gun gun) {
+    this.gun = gun;
+  }
+  
   public Soldier(int bullet) {
     gun = new Gun(bullet);
   }
