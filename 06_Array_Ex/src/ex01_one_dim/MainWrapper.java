@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class MainWrapper {
 
   public static void ex01() {
-    //                             배열의 인덱스
-    // 월에 따른 계절    월 % 12   월 % 12 / 3
+    // 월에 따른 계절    월 % 12   월 % 12 / 3 -> (배열의 인덱스)
     // 3 ~ 5 : 봄        3 ~ 5     1
     // 6 ~ 8 : 여름      6 ~ 8     2
     // 9 ~ 11: 가을      9 ~ 11    3
