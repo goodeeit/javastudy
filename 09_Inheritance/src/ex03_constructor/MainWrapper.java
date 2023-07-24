@@ -23,6 +23,11 @@ public class MainWrapper {
     System.out.println(s2.getName());
     System.out.println(s2.getSchool());
     
+    // new Student("홍길동", "가산대학교")를 이용한 Student 객체 생성
+    Student s3 = new Student("홍길동", "가산대학교");
+    System.out.println(s3.getName());
+    System.out.println(s3.getSchool());
+    
   }
 
 }
