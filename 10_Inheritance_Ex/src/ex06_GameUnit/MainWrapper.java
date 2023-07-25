@@ -13,7 +13,7 @@ public class MainWrapper {
     unit2.setHp(50);
     
     // 공격 순서를 결정하는 flag
-    boolean myTurn = false;
+    boolean myTurn = true;
     
     // 게임 유닛이 모두 살아있으면 계속해서 공격
     while(unit1.isAlive() && unit2.isAlive()) {
