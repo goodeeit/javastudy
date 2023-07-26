@@ -1,11 +1,33 @@
 package ex07_Object;
 
 /*
- * Object 클래스
+ * java.lang.Object 클래스
  * 1. 모든 클래스의 최상위 슈퍼 클래스이다.
  * 2. 별도의 슈퍼 클래스를 명시하지 않은 클래스들은(extends가 없는 클래스) 모두 Object 클래스의 서브 클래스이다.
  * 3. 모든 것을 저장할 수 있는 Java의 만능 타입이다.
  * 4. Object 타입으로 저장하면 Object 클래스의 메소드만 호출할 수 있다. 이를 해결하기 위해서 "반드시" 캐스팅을 해야 한다.
+ */
+
+/*
+ *  ┌--------------┐
+ *  │    Object    │ 슈퍼 클래스
+ *  │--------------│
+ *  │  equals()    │ 두 객체의 참조값을 비교해서 같으면 true, 아니면 false 반환
+ *  │  getClass()  │
+ *  │  hashcode()  │
+ *  │  toString()  │
+ *  │  notify()    │
+ *  │  wait()      │
+ *  └--------------┘
+ *          ▲
+ *          │
+ *          │
+ *  ┌--------------┐
+ *  │    Person    │ 서브 클래스
+ *  │--------------│
+ *  │  @Override   │
+ *  │  equals()    │ 이름과 나이가 같으면 true, 아니면 false 반환
+ *  └--------------┘
  */
 
 public class Person {
@@ -22,6 +44,18 @@ public class Person {
     this.name = name;
     this.age = age;
   }
+  
+  @Override
+  public boolean equals(Object obj) {  // p1.equals(p2)
+    Person p = (Person)obj;
+    return (age == p.age) && name.equals(p.name);
+  }
+  
+  
+  
+  
+  
+  
   
   public String getName() {
     return name;
