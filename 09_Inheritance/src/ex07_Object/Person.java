@@ -1,5 +1,7 @@
 package ex07_Object;
 
+import java.util.Objects;
+
 /*
  * java.lang.Object 클래스
  * 1. 모든 클래스의 최상위 슈퍼 클래스이다.
@@ -10,23 +12,23 @@ package ex07_Object;
 
 /*
  *  ┌--------------┐
- *  │    Object    │ 슈퍼 클래스
+ *  │  Object      │ 슈퍼 클래스
  *  │--------------│
  *  │  equals()    │ 두 객체의 참조값을 비교해서 같으면 true, 아니면 false 반환
- *  │  getClass()  │
- *  │  hashcode()  │
- *  │  toString()  │
- *  │  notify()    │
- *  │  wait()      │
+ *  │  getClass()  │ 어떤 클래스인지 반환
+ *  │  hashCode()  │ int 타입의 해시코드값, Object 클래스는 객체의 참조값을 해시코드값으로 사용함
+ *  │  toString()  │ "클래스이름@참조값" 형식의 문자열을 반환
+ *  │  notify()    │ 스레드(thread) 관련 메소드
+ *  │  wait()      │ 스레드(thread) 관련 메소드
  *  └--------------┘
  *          ▲
  *          │
  *          │
  *  ┌--------------┐
- *  │    Person    │ 서브 클래스
+ *  │  Person      │ 서브 클래스
  *  │--------------│
  *  │  @Override   │
- *  │  equals()    │ 이름과 나이가 같으면 true, 아니면 false 반환
+ *  │  equals()    │ 이름과 나이가 같으면 true, 아니면 false 반환 (하드코딩하지 않고, 자동완성한다.)
  *  └--------------┘
  */
 
@@ -46,16 +48,20 @@ public class Person {
   }
   
   @Override
-  public boolean equals(Object obj) {  // p1.equals(p2)
-    Person p = (Person)obj;
-    return (age == p.age) && name.equals(p.name);
+  public int hashCode() {
+    return Objects.hash(age, name);
   }
-  
-  
-  
-  
-  
-  
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)  // p1.equals(p1)
+      return true;
+    if (obj == null)  // p1.equals(null)
+      return false;
+    if (getClass() != obj.getClass())  // p1.equals(s1)
+      return false;
+    Person other = (Person) obj;
+    return age == other.age && Objects.equals(name, other.name);
+  }
   
   public String getName() {
     return name;
