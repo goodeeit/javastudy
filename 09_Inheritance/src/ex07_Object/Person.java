@@ -29,6 +29,9 @@ import java.util.Objects;
  *  │--------------│
  *  │  @Override   │
  *  │  equals()    │ 이름과 나이가 같으면 true, 아니면 false 반환 (하드코딩하지 않고, 자동완성한다.)
+ *  │              │
+ *  │  @Override   │
+ *  │  toString()  │ 이름과 나이를 확인할 수 있는 문자열 반환 (하드코딩하지 않고, 자동완성한다.)
  *  └--------------┘
  */
 
@@ -61,6 +64,11 @@ public class Person {
       return false;
     Person other = (Person) obj;
     return age == other.age && Objects.equals(name, other.name);
+  }
+  
+  @Override
+  public String toString() {
+    return "Person [name=" + name + ", age=" + age + "]";
   }
   
   public String getName() {

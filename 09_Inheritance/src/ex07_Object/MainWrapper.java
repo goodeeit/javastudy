@@ -29,8 +29,15 @@ public class MainWrapper {
     
   }
   
+  public static void ex03() {
+    
+    Person p = new Person("홍길동", 20);
+    System.out.println(p);  // 객체 p는 p.toString()이 자동 호출되서 사용된다.
+    
+  }
+  
   public static void main(String[] args) {
-    ex02();
+    ex03();
   }
 
 }
