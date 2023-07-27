@@ -76,7 +76,19 @@ public class MainWrapper {
   
   public static void ex04() {
     
+    // 동일한 객체 2개
+    Person p1 = new Person("홍길동", 30);
+    Person p2 = new Person("홍길동", 30);
     
+    // HashSet 선언 & 생성
+    Set<Person> people = new HashSet<Person>();
+    
+    // 요소 추가
+    people.add(p1);
+    people.add(p2);
+    
+    // 확인
+    System.out.println(people);
     
   }
   
@@ -132,7 +144,7 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    ex07();
+    ex04();
   }
 
 }
