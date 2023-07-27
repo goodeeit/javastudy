@@ -4,6 +4,10 @@ public class Seat {
 
   private Person person;
 
+  public Seat() {
+    
+  }
+  
   public Person getPerson() {
     return person;
   }
