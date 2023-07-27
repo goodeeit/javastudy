@@ -26,9 +26,9 @@ public class Bus {
    * 1. 착석할 시트번호와 착석할 Person을 받아온다.<br>
    * 2. List<Seat> seats에서 착석할 시트(Seat)를 가져온다.<br>
    * 3. 가져온 시트(Seat)에 착석할 Person을 저장한다.<br>
-   * 4. 예외상황
-   *    1) 착석할 시트번호가 1~LIMIT을 벗어난 경우
-   *    2) 착석할 시트에 이미 Person이 있는 경우 
+   * 4. 예외상황<br>
+   *    1) 착석할 시트번호가 1~LIMIT을 벗어난 경우<br>
+   *    2) 착석할 시트에 이미 Person이 있는 경우<br>
    * @param seatNo 착석할 시트번호. 1~LIMIT 사이 값을 받는다.
    * @param person 착석할 Person. new Person("이름") 또는 new Student("이름")을 받는다.
    */
@@ -51,9 +51,9 @@ public class Bus {
    * 1. 하차할 시트번호를 받아온다.<br>
    * 2. List<Seat> seats에서 하차할 시트(Seat)를 가져온다.<br>
    * 3. 가져온 시트(Seat)에 null 값을 저장한다.<br>
-   * 4. 예외상황
-   *    1) 하차할 시트번호가 1~LIMIT을 벗어난 경우
-   *    2) 하차할 시트에 저장된 Person이 null인 경우 
+   * 4. 예외상황<br>
+   *    1) 하차할 시트번호가 1~LIMIT을 벗어난 경우<br>
+   *    2) 하차할 시트에 저장된 Person이 null인 경우<br>
    * @param seatNo 하차할 시트번호. 1~LIMIT 사이 값을 받는다.
    */
   public void getOff(int seatNo) {
