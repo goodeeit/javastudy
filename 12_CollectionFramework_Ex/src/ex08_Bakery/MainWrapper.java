@@ -17,5 +17,5 @@ public class MainWrapper {
     System.out.println("고객 빵: " + customer.getCount() + "개");
 
   }
-
+  
 }
