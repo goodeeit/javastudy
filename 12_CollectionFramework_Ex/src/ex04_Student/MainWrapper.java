@@ -15,11 +15,11 @@ public class MainWrapper {
     
     clazz.put(10101, new Student("가길동", new Exam(100, 100, 100)));
     clazz.put(10102, new Student("나길동", new Exam(90, 90, 90)));
-    
-//    Student student = new Student();
-//    student.setName("나길동");
-//    student.setExam(new Exam(90, 90, 90));
-//    clazz.put(10102, student);
+
+//  Student student = new Student();
+//  student.setName("나길동");
+//  student.setExam(new Exam(90, 90, 90));
+//  clazz.put(10102, student);
     
     Integer[] stuNo = {10101, 10102};
     for(int i = 0; i < stuNo.length; i++) {
