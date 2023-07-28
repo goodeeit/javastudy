@@ -4,7 +4,7 @@ public class MainWrapper {
 
   public static void main(String[] args) {
     
-    BinaryNumber bn = new BinaryNumber(32);
+    BinaryNumber bn = new BinaryNumber(0);
     System.out.println(bn);  // 100000
 
   }
