@@ -10,12 +10,13 @@ public class BinaryNumber {
   // new BinaryNumber(32) 2진수: 100000
   public BinaryNumber(int number) {
     this.number = number;
-    // binary.get(0) : 0
-    // binary.get(1) : 0
-    // binary.get(2) : 0
-    // binary.get(3) : 0
-    // binary.get(4) : 0
-    // binary.get(5) : 1
+    // 32 % 2 == 0 -> binary.get(0)
+    // 16 % 2 == 0 -> binary.get(1)
+    //  8 % 2 == 0 -> binary.get(2)
+    //  4 % 2 == 0 -> binary.get(3)
+    //  2 % 2 == 0 -> binary.get(4)
+    //  1 % 2 == 1 -> binary.get(5)
+    //  0 % 2 == 불가능하므로 여기서 종료
     
   }
   
