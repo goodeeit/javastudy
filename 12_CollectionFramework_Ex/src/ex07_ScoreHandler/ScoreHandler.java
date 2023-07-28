@@ -1,6 +1,7 @@
 package ex07_ScoreHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +18,30 @@ public class ScoreHandler {
     students.add(map);
   }
   
-  public int getMax() {
-    int max = (int)(students.get(0).get("score"));
+  public Map<String, Number> get() {
+    
+    // 점수 연산
+    int max, min, total;
+    max = min = total = (int)(students.get(0).get("score"));
     for(int i = 1, length = students.size(); i < length; i++) {
       int score = (int)(students.get(i).get("score"));
       if(max < score) {
         max = score;
       }
+      if(min > score) {
+        min = score;
+      }
+      total += score;
     }
-    return max;
+    
+    // 반환
+    Map<String, Number> map = new HashMap<String, Number>();
+    map.put("max", max);
+    map.put("min", min);
+    map.put("total", total);
+    map.put("average", (double)total / students.size());
+    return map;
+    
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 }
