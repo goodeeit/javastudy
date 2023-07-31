@@ -82,8 +82,77 @@ public class Ex01_String {
     
   }
   
+  public static void ex04() {
+    
+    // toUpperCase 메소드 : 모두 대문자로 변환
+    // toLowerCase 메소드 : 모두 소문자로 변환
+    
+    String name = "Tom";
+    
+    System.out.println(name.toUpperCase());
+    System.out.println(name.toLowerCase());
+    
+  }
+  
+  public static void ex05() {
+    
+    // length 메소드 : 문자열의 길이(글자수)를 반환
+    
+    String name = "Tom cruise\n";
+    
+    int length = name.length();
+    System.out.println(length);
+    
+  }
+  
+  public static void ex06() {
+    
+    // charAt 메소드
+    // 문자열의 특정 인덱스(Index)의 문자를 반환
+    
+    String name = "tom";
+    
+    char ch1 = name.charAt(0);
+    char ch2 = name.charAt(1);
+    char ch3 = name.charAt(2);
+    
+    System.out.println(ch1 + "," + ch2 + "," + ch3);
+    
+  }
+  
+  public static void ex07() {
+    
+    // substring 메소드
+    // 문자열의 일부 문자열을 반환
+    
+    // substring 사용법
+    // 1. substring(int begin) : 인덱스 begin부터 끝까지 반환
+    // 2. substring(int begin, int end) : 인덱스 begin부터 end 이전까지 반환(begin <= 추출범위 < end)
+    
+    String name = "tom cruise";
+    
+    String firstName = name.substring(0, 3);  // tom
+    String lastName = name.substring(4);  // cruise
+    
+    System.out.println(firstName);
+    System.out.println(lastName);
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   public static void main(String[] args) {
-    ex03();
+    ex07();
   }
 
 }
