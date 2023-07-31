@@ -245,6 +245,35 @@ public class Ex01_String {
   
   public static void ex13() {
     
+    // strip 메소드
+    // 앞 뒤에 포함된 공백 문자 제거
+    String name = "\n tom \n";
+    String str1 = name.strip();
+    System.out.println(str1.length());  // 3
+    
+    // trim 메소드
+    // 앞 뒤에 포함된 공백 문자 제거
+    String str2 = name.trim();
+    System.out.println(str2.length());  // 3
+    
+  }
+  
+  public static void ex14() {
+    
+    // replace 메소드
+    // 1. 지정된 문자열을 다른 문자열로 변환
+    // 2. 발견된 모든 문자열을 변환
+    
+    String ip = "192.168.0.101";
+    String str = ip.replace(".", "_");
+    System.out.println(str);
+    
+  }
+  
+  public static void ex15() {
+
+    // 이 곳의 메소드는 정규식을 배운 다음에 사용합시다.
+    
     // 정규식을 활용한 메소드
     // 1. startsWith : 지정된 정규식 패턴으로 시작하면 true 반환
     // 2. endsWith   : 지정된 정규식 패턴으로 끝나면 true 반환
@@ -260,7 +289,7 @@ public class Ex01_String {
   }
   
   public static void main(String[] args) {
-    ex13();
+    ex14();
   }
 
 }
