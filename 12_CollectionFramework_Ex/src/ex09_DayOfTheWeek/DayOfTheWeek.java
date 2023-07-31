@@ -41,21 +41,34 @@ public class DayOfTheWeek {
     // dayOfTheWeek 계산 코드 작성
     int totalDay = 0;  // AD 1년 1월 1일 이후로 며칠이 지났는지 저장한 변수
     
-    // year를 이용해 totalDay 누적
+    // year를 이용해 totalDay 누적 (작년까지 며칠이 지났는지 계산)
+    for(int y = 1; y < year; y++) {
+      totalDay += 365;
+      if((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+        totalDay++;
+      }
+    }
     
-    // month를 이용해 totalDay 누적(리스트 lastDay 활용)
+    // month를 이용해 totalDay 누적(리스트 lastDay 활용) (지난달까지 며칠이 지났는지 계산)
+    if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+      lastDay.set(2, 29);
+    }
+    for(int i = 1; i < month; i++) {
+      totalDay += lastDay.get(i);
+    }
     
-    // day를 이용해 totalDay 누적
+    // day를 이용해 totalDay 누적 (이번 달 며칠이 지났는지 계산)
+    totalDay += day;
     
     // dayOfTheWeek 계산(totalDay + 리스트 week 활용)
+    dayOfTheWeek = week.get(totalDay % 7);
     
   }
   
   // toString()
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
-    return super.toString();
+    return year + "년 " + String.format("%02d", month) + "월 " + String.format("%02d", day) + "일은 " + dayOfTheWeek + "요일입니다.";
   }
   
 }
