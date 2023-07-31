@@ -1,4 +1,4 @@
-package ex02_random;
+package ex03_random;
 
 public class MainWrapper {
 
