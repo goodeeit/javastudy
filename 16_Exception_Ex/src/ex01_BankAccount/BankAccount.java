@@ -39,7 +39,30 @@ public class BankAccount {
     }
   }
   
-  
+  /**
+   * 출금 메소드<br>
+   * 파라미터가 0보다 작거나 같으면 출금된 금액이 없으므로 0을 반환한다.<br>
+   * 파라미터가 통장잔액(balance)보다 크면 출금된 금액이 없으므로 0을 반환한다.
+   * @param money 출금할 금액
+   * @return 실제로 출금된 금액
+   * @exception RuntimeException 출금할 금액이 0 이하이거나 잔액보다 큰 경우에 발생한다.
+   */
+  public long withdrawal(long money) {
+    long retVal = 0;
+    try {
+      if(money <= 0) {
+        throw new RuntimeException(money + "원 출금 불가");
+      } else if(money > balance) {
+        throw new RuntimeException("잔액 부족");
+      } else {
+        balance -= money;
+        retVal = money;
+      }
+    } catch (RuntimeException e) {
+      System.out.println(e.getMessage());
+    }
+    return retVal;
+  }
   
   
   

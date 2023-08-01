@@ -5,8 +5,9 @@ public class MainWrapper {
   public static void main(String[] args) {
     
     BankAccount acc = new BankAccount(10000, "1234");
-    acc.deposit(-1);
-
+    long money = acc.withdrawal(5000);
+    System.out.println("출금액 " + money);
+    
   }
 
 }
