@@ -36,31 +36,33 @@ public class Bakery {
    * @param count 구매할 빵의 갯수
    * @param money 빵을 사려고 내는 돈
    * @return 빵과 잔돈
+   * @throws RuntimeException 빵이 부족, 잔돈이 부족, 돈을 안 냄, 돈이 부족함
    */
-  public Map<String, Integer> sell(int count, int money) {
+  public Map<String, Integer> sell(int count, int money) throws RuntimeException {
+    
+    // 0 이하의 빵을 요청했다.
+    if(count <= 0) {
+      throw new RuntimeException("판매 불가합니다.(0 이하의 빵을 요청하다.)");
+    }
     
     // 빵이 부족하다.
     if(this.count < count) {
-      System.out.println("판매 불가합니다.(빵이 부족하다.)");
-      return null;
+      throw new RuntimeException("판매 불가합니다.(빵이 부족하다.)");
     }
     
     // 잔돈이 부족하다.
     if(this.money < money - count * PRICE) {
-      System.out.println("판매 불가합니다.(잔돈이 부족하다.)");
-      return null;
+      throw new RuntimeException("판매 불가합니다.(잔돈이 부족하다.)");
     }
     
     // 고객이 돈을 안 냈다.
     if(money <= 0) {
-      System.out.println("판매 불가합니다.(돈을 안 냈다.)");
-      return null;
+      throw new RuntimeException("판매 불가합니다.(돈을 안 냈다.)");
     }
     
     // 고객이 낸 돈이 모자르다.
     if(PRICE * count > money) {
-      System.out.println("판매 불가합니다.(낸 돈이 모자르다.)");
-      return null;
+      throw new RuntimeException("판매 불가합니다.(낸 돈이 모자르다.)");
     }
     
     // 판매 처리
