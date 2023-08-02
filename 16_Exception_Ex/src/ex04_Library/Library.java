@@ -60,6 +60,9 @@ public class Library {
   
   /**
    * 수정<br>
+   * 수정할 책의 제목을 입력 받아서 해당 책의 가격을 수정하는 메소드
+   * @throws RuntimeException 책이 0권이거나 수정할 책의 제목이 입력되지 않았을 때 발생하는 예외
+   * @throws InputMismatchException 책의 가격을 정수로 입력하지 않았을 때 발생하는 예외
    */
   private void modifyBook() {
     
