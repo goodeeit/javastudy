@@ -9,7 +9,6 @@ public class MainWrapper {
    * 3. 메소드를 호출하는 곳에서 try-catch를 처리한다.
    */
   
-  
   // print 메소드 정의
   // throws NullPointerException : 메소드를 호출할 때 NullPointerException 처리가 필요하다.
   public static void print(String str) throws NullPointerException {

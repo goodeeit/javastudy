@@ -18,6 +18,8 @@ public class Library {
   
   /**
    * 등록<br>
+   * 책의 제목과 가격을 입력 받아서 List<Book> books에 저장하는 메소드
+   * @throws InputMismatchException 책의 가격을 정수로 입력하지 않았을 때 발생하는 예외
    */
   private void addBook() throws InputMismatchException {
     System.out.println("=== 등록 ===");
@@ -31,9 +33,29 @@ public class Library {
   
   /**
    * 삭제<br>
+   * 책의 제목을 입력 받아서 해당 제목을 가진 Book 객체를 List<Book> books에서 삭제하는 메소드
+   * @throws RuntimeException 책이 0권이거나 삭제할 책의 제목이 입력되지 않았을 때 발생하는 예외
    */
-  private void deleteBook() {
-    
+  private void deleteBook() throws RuntimeException {
+    System.out.println("=== 삭제 ===");
+    if(books.isEmpty()) {
+      throw new RuntimeException("도서관에 등록된 책이 없습니다.");
+    }
+    System.out.println("삭제할 책의 제목 입력 >>> ");
+    String title = sc.next();
+    if(title.isEmpty()) {
+      throw new RuntimeException("삭제할 책의 제목이 입력되지 않았습니다.");
+    }
+    // 객체 기반 삭제(동일한 객체를 찾아서 삭제)
+    // 동일한 객체인지 비교하기 위해서는 Book 클래스에 equals 메소드가 오버라이드 되어 있어야 한다.
+    for(Book book : books) {
+      if(title.equals(book.getTitle())) {
+        books.remove(book);
+        System.out.println(book + " 책이 삭제되었습니다.");
+        return;
+      }
+    }
+    System.out.println(title + " 제목을 가진 책이 없습니다.");
   }
   
   /**
@@ -45,6 +67,8 @@ public class Library {
   
   /**
    * 조회<br>
+   * 조회할 책의 제목을 입력 받아서 해당 책의 정보를 출력하는 메소드
+   * @throws RuntimeException 책이 0권이거나 삭제할 책의 제목이 입력되지 않았을 때 발생하는 예외
    */
   private void queryBook() {
     
@@ -52,6 +76,8 @@ public class Library {
   
   /**
    * 전체조회<br>
+   * List<Book> books의 모든 Book 객체를 순서대로 출력하는 메소드
+   * @throws RuntimeException 책이 0권일 때 발생하는 예외
    */
   private void queryAllBook() throws RuntimeException {
     System.out.println("=== 전체조회 ===");
