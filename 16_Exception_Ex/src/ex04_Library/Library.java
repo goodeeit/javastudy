@@ -64,8 +64,26 @@ public class Library {
    * @throws RuntimeException 책이 0권이거나 수정할 책의 제목이 입력되지 않았을 때 발생하는 예외
    * @throws InputMismatchException 책의 가격을 정수로 입력하지 않았을 때 발생하는 예외
    */
-  private void modifyBook() {
-    
+  private void modifyBook() throws RuntimeException, InputMismatchException {
+    System.out.println("=== 수정 ===");
+    if(books.isEmpty()) {
+      throw new RuntimeException("도서관에 등록된 책이 없습니다.");
+    }
+    System.out.println("수정할 책의 제목 입력 >>> ");
+    String title = sc.next();
+    if(title.isEmpty()) {
+      throw new RuntimeException("수정할 책의 제목이 입력되지 않았습니다.");
+    }
+    for(Book book : books) {
+      if(title.equals(book.getTitle())) {
+        System.out.println("수정할 책의 가격 입력 >>> ");
+        int price = sc.nextInt();
+        book.setPrice(price);
+        System.out.println(title + " 책의 가격이 " + price + "원으로 수정되었습니다.");
+        return;
+      }
+    }
+    System.out.println(title + " 제목을 가진 책이 없습니다.");
   }
   
   /**
@@ -85,7 +103,7 @@ public class Library {
     }
     for(Book book : books) {
       if(title.equals(book.getTitle())) {
-        System.out.println("조회결과" + book);
+        System.out.println("조회결과 " + book);
         return;
       }
     }
