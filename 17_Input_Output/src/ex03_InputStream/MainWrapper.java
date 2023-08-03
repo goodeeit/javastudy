@@ -103,7 +103,7 @@ public class MainWrapper {
       /*
        * 15바이트 "abcdefghijklmno"를 4바이트씩 읽는 방식
        * 
-       * byte[] b             readByte    new String(b, 0, readByte)
+       * byte[] b            readByte    new String(b, 0, readByte)
        * 
        * 1차 Loop
        * ┌---------------┐
@@ -111,15 +111,15 @@ public class MainWrapper {
        * └---------------┘
        * 2차 Loop
        * ┌---------------┐
-       * │ e | f | g | h │   4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
+       * │ e | f | g | h │  4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
        * └---------------┘
        * 3차 Loop
        * ┌---------------┐
-       * │ i | j | k | l │   4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
+       * │ i | j | k | l │  4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
        * └---------------┘
        * 4차 Loop
        * ┌---------------┐
-       * │ m | n | o | l │   3           배열 b의 인덱스 0부터 3개 데이터를 String으로 변환한다.
+       * │ m | n | o | l │  3           배열 b의 인덱스 0부터 3개 데이터를 String으로 변환한다.
        * └---------------┘
        *                ↑
        *                └---- 이전 Loop에서 읽은 데이터이므로 사용하면 안 된다.
