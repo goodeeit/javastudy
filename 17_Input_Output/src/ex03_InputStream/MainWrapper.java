@@ -106,9 +106,9 @@ public class MainWrapper {
        * byte[] b                 readByte    new String(b, 0, readByte)
        * 
        * 1차 Loop
-       * ┌------------------┐
+       * ┌─────────┐
        * │ a │ b │ c │ d │   4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
-       * └------------------┘
+       * └─────────┘
        * 2차 Loop
        * ┌------------------┐
        * │ e │ f │ g │ h │   4           배열 b의 인덱스 0부터 4개 데이터를 String으로 변환한다.
