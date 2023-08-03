@@ -18,6 +18,7 @@ public class MainWrapper {
   }
   */
   
+  // 재귀 호출을 이용해서 ex01() 다시 풀기
   public static void ex01(File dir) {
     File parent = dir.getParentFile();  // dir의 상위 디렉터리
     if(parent == null) {                // dir의 상위 디렉터리가 없으면 그만
