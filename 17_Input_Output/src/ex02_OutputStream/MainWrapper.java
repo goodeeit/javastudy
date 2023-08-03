@@ -12,7 +12,7 @@ public class MainWrapper {
 
   /*
    * java.io.OutputStream 클래스
-   * 1. 바이트 기반의 출력 스트림이다.
+   * 1. 바이트 기반의 출력스트림이다.
    * 2. 출력 단위
    *    1) int
    *    2) byte[]
