@@ -34,6 +34,9 @@ public class MainWrapper {
     try {
       
       // 파일출력스트림 생성(반드시 예외 처리가 필요한 코드)
+      
+      // 1. 생성모드 : 언제나 새로 만든다.(덮어쓰기)        new FileWriter(file)
+      // 2. 추가모드 : 새로 만들거나, 기존 파일에 추가한다. new FileWriter(file, true)
       fw = new FileWriter(file);
       
       // 출력할 데이터(파일로 보낼 데이터)
