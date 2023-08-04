@@ -12,12 +12,13 @@ public class MainWrapper {
      * 1. Uniform Resource Location
      * 2. 정형화된 자원의 경로 표기방법(웹 주소를 의미한다.)
      * 3. 형식
-     *     프로토콜://    호스트      :포트/ URLMapping ?파라미터=값&파라미터=값&파라미터=값...
-     *        https://search.naver.com:8080/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=폭염
+     *     프로토콜://    호스트     :포트/ URLMapping ?파라미터=값&파라미터=값&파라미터=값...
+     *        https://search.naver.com:443/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=폭염
      *     1) 프로토콜   : 통신규약, https(secure + http : 보안 처리된 하이퍼텍스트 전송 프로토콜)
      *     2) 호스트     : 서버주소
-     *     3) URLMapping : 서버경로
-     *     4) 파라미터   : 서버로 보내는 데이터
+     *     3) 포트번호   : Well known port → http(80), https(443), ftp(21), ssh(22)
+     *     4) URLMapping : 서버경로
+     *     5) 파라미터   : 서버로 보내는 데이터
      */
 
     /*
@@ -28,7 +29,7 @@ public class MainWrapper {
      */
     
     // URL 정보 분석하기
-    String apiURL = "https://search.naver.com:8080/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=폭염";
+    String apiURL = "https://search.naver.com:443/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=폭염";
     
     // URL 객체 선언
     URL url = null;
