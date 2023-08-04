@@ -10,7 +10,7 @@ public class Lotto {
    * @return 0 로또 구매 실패 시 반환
    */
   public int buyLotto() {
-    
+    return 0;
   }
   
   /**
