@@ -14,6 +14,15 @@ public class MainWrapper {
     // 문제. %ORA_HOME%/oui/instImages/bg.jpg 이미지 파일을 C:/storage/bg.jpg 이미지로 복사하시오.
     // %ORA_HOME%은 C:/app/사용자/product/18.0.0/dbhomeXE 디렉터리를 의미한다.
     
+    /*
+     * 원본 bg.jpg                      byte[] b = new byte[1024]                   복사본 bg.jpg
+     * ┌-------┐                            ┌-------┐                            ┌-------┐
+     * │       │----------------------------│       │----------------------------│       │
+     * │       │ →→→→→→→→→→→→→ │       │→→→→→→→→→→→→→→│       │ 
+     * │       │----------------------------│       │----------------------------│       │
+     * └-------┘   readByte = bin.read(b)   └-------┘  bout.write(b,0,readByte)  └-------┘
+     */
+    
     // 원본 파일의 File 객체 생성
     File dir1 = new File("C:/app/GOODEE/product/18.0.0/dbhomeXE/oui/instImages");
     File src = new File(dir1, "bg.jpg");
