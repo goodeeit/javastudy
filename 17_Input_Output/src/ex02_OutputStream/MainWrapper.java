@@ -135,8 +135,8 @@ public class MainWrapper {
       
       // 출력할 데이터(파일로 보낼 데이터)
       String s1 = "안녕하세요";
-      String s2 = "반갑습니다";
       int c = '\n';
+      String s2 = "반갑습니다";
     
       // 출력(파일로 데이터 보내기)
       bout.write(s1.getBytes("UTF-8"));

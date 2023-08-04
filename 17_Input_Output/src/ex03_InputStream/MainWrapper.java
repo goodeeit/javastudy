@@ -41,7 +41,7 @@ public class MainWrapper {
       // 입력된 데이터를 누적할 StringBuilder 생성
       StringBuilder sb = new StringBuilder();
       
-      // read() 메소드
+      // int read() 메소드
       // 1. 1개 데이터를 읽어서 반환한다.
       // 2. 읽은 내용이 없으면 -1을 반환한다.
       
@@ -94,7 +94,7 @@ public class MainWrapper {
       // 입력된 데이터를 누적할 StringBuilder 생성
       StringBuilder sb = new StringBuilder();
       
-      // read(byte[] b) 메소드
+      // int read(byte[] b) 메소드
       // 1. 파라미터로 전달된 byte[] b에 읽은 내용을 저장한다.
       // 2. 실제로 읽은 바이트 수를 반환한다.
       // 3. 읽은 내용이 없으면 -1을 반환한다.
@@ -178,7 +178,7 @@ public class MainWrapper {
       // 입력된 데이터를 누적할 StringBuilder 생성
       StringBuilder sb = new StringBuilder();
       
-      // read(byte[] b) 메소드
+      // int read(byte[] b) 메소드
       // 1. 파라미터로 전달된 byte[] b에 읽은 내용을 저장한다.
       // 2. 실제로 읽은 바이트 수를 반환한다.
       // 3. 읽은 내용이 없으면 -1을 반환한다.
