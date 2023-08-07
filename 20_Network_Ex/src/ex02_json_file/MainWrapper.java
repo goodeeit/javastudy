@@ -13,7 +13,7 @@ import org.json.JSONArray;
 
 public class MainWrapper {
 
-  public static void main(String[] args) {
+  public static void ex01() {
     
     // 문제. 아래 내용을 가지는 C:/storage/product.json 파일 생성하기
     /*
@@ -78,6 +78,16 @@ public class MainWrapper {
       e.printStackTrace();
     }
     
+  }
+  
+  public static void ex02() {
+    
+    
+    
+  }
+  
+  public static void main(String[] args) {
+    ex01();    
   }
 
 }
