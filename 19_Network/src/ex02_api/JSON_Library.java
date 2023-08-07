@@ -1,6 +1,8 @@
 package ex02_api;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -143,17 +145,40 @@ public class JSON_Library {
     
   }
   
+  public static void ex06() {
+    
+    // List -> JSONArray 변환
+    
+    // Map 2개 (사람 2명)
+    Map<String, Object> map1 = new HashMap<String, Object>();
+    map1.put("name", "tom");
+    map1.put("age", 50);
+    map1.put("height", 180.5);
+    
+    Map<String, Object> map2 = new HashMap<String, Object>();
+    map2.put("name", "jessica");
+    map2.put("age", 60);
+    map2.put("height", 190.5);
+    
+    // List (Map 2개 저장)
+    List<Map<String, Object>> list = Arrays.asList(map1, map2);
+    
+    // JSONArray
+    JSONArray array = new JSONArray(list);
+    
+    // 일반 for문
+    for(int i = 0, length = array.length(); i < length; i++) {
+      JSONObject obj = array.getJSONObject(i);
+      String name = obj.getString("name");
+      int age = obj.getInt("age");
+      double height = obj.getDouble("height");
+      System.out.println((i + 1) + ", " + name + ", " + age + ", " + height);
+    }
+    
+  }
   
   public static void main(String[] args) {
-    ex05();
+    ex06();
   }
 
 }
-
-
-
-
-
-
-
-
