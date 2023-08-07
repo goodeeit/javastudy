@@ -36,7 +36,7 @@ public class MainWrapper {
     
     try {
       
-      String spec = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
+      String spec = "http://openapi.kepco.co.kr/service/EvInfoServiceV2/getEvSearchList";
       String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
       String pageNo = "1";
       String numOfRows = "10";
