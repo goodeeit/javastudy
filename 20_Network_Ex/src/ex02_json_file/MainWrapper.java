@@ -1,15 +1,20 @@
 package ex02_json_file;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainWrapper {
 
@@ -87,7 +92,46 @@ public class MainWrapper {
     // ○ (강수) 10일(목) 전국에, 11일(금) 오전 수도권과 강원도에 비가 오겠습니다.<br />○ (기온) 이번 예보기간 아침 기온은 23~26도, 낮 기온은 27~33도로 평년(최저기온 22~24도, 최고기온 29~32도)과 비슷하겠습니다. <br />○ (해상) 전해상에 10일(목)까지, 동해상은 11일(금)까지 물결이 1.0~4.0m(동해상과 남해동부해상 5.0m 이상)로 매우 높게 일겠습니다.<br />○ (주말전망) 12일(토)과 13일(일)은 전국이 구름많겠습니다. 아침 기온은 23~26도, 낮 기온은 30~33도가 되겠습니다.
 
     String spec = "https://gdlms.cafe24.com/uflist/curri/10014/bbs/231_64d09afdc7c01.json";
+    URL url = null;
+    HttpURLConnection con = null;
+    BufferedReader reader = null;
     
+    try {
+      
+      // String으로 모두 받기
+      url = new URL(spec);
+      con = (HttpURLConnection) url.openConnection();
+      
+      reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+      StringBuilder sb = new StringBuilder();
+      String line = null;
+      while((line = reader.readLine()) != null) {
+        sb.append(line);
+      }
+      
+      // String -> JSONObject 변환
+      JSONObject obj = new JSONObject(sb.toString());
+      
+      // 원하는 정보 추출하기 (Parsing)
+      JSONObject rss = obj.getJSONObject("rss");
+      JSONObject channel = rss.getJSONObject("channel");
+      JSONObject item = channel.getJSONObject("item");
+      JSONObject description = item.getJSONObject("description");
+      JSONObject header = description.getJSONObject("header");
+      String wf = header.getString("wf");
+      System.out.println(wf.replace("<br />", "\n"));
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if(reader != null) reader.close();
+        if(con != null) con.disconnect();
+      } catch(IOException e) {
+        e.printStackTrace();
+      }
+    }
+
   }
   
   public static void main(String[] args) {
