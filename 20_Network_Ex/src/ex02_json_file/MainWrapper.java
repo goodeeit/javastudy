@@ -4,7 +4,7 @@ public class MainWrapper {
 
   public static void main(String[] args) {
     
-    // 문제. 아래 내용을 가지는 product.json 파일 생성하기
+    // 문제. 아래 내용을 가지는 C:/storage/product.json 파일 생성하기
     /*
         [
           {
