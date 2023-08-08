@@ -1,6 +1,9 @@
 package ex02_terminal;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class MainWrapper {
 
@@ -18,10 +21,22 @@ public class MainWrapper {
     
   }
 
-  
+  public static void ex02() {
+    
+    // Stream -> List
+    
+    // Stream
+    Stream<String> stream = Stream.of("봄", "여름", "가을", "겨울");
+    
+    // Stream -> List
+    List<String> list = stream.collect(Collectors.toList());
+    System.out.println(list);
+    
+  }
   
   public static void main(String[] args) {
-    ex01();
+//    ex01();
+    ex02();
   }
 
 }
