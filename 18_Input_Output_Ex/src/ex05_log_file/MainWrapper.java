@@ -46,13 +46,13 @@ public class MainWrapper {
         
         // 문제. 예외가 발생할때마다 예외가 발생한 시간과 예외 메시지(message)를 C:/storage/log.txt 파일에 기록하시오.
         // C:/storage/log.txt 파일 내용 예시)
-        // 2023-08-04 15:10:30    / by zero
-        // 2023-08-04 15:11:23    invalid operator ++
-        // 2023-08-04 15:12:52    null
+        // 2023-08-04 오후 3:10:30    / by zero
+        // 2023-08-04 오후 3:11:23    invalid operator ++
+        // 2023-08-04 오후 3:12:52    null
         
         // 예외 발생 시간
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm:ss");
         String time = dtf.format(now);
         
         // 예외 메시지
