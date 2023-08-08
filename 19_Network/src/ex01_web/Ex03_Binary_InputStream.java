@@ -16,7 +16,7 @@ public class Ex03_Binary_InputStream {
     // 웹 상의 바이너리 파일 읽기
     
     // 접속할 주소
-    String spec = "https://ssl.pstatic.net/melona/libs/1456/1456783/f24d4712cb2688092681_20230803123239648.jpg";
+    String spec = "https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png";
     
     // URL 객체 선언
     URL url = null;
@@ -24,10 +24,10 @@ public class Ex03_Binary_InputStream {
     // HttpURLConnection 객체 선언
     HttpURLConnection con = null;
     
-    // 입력스트림 선언 (네이버 배너를 읽는 스트림)
+    // 입력스트림 선언 (다음 로고 이미지를 읽는 스트림)
     BufferedInputStream bin = null;
     
-    // 출력스트림 선언 (C:/storage/banner.jpeg 파일을 만드는 스트림)
+    // 출력스트림 선언 (C:/storage/daum.png 파일을 만드는 스트림)
     BufferedOutputStream bout = null;
     
     try {
@@ -48,7 +48,7 @@ public class Ex03_Binary_InputStream {
       }
       String contentType = con.getContentType();
       String extName = contentType.substring(contentType.indexOf("/") + 1);
-      String fileName = "banner." + extName;
+      String fileName = "daum." + extName;
       File file = new File(dir, fileName);
       
       // 출력스트림 생성
@@ -60,8 +60,8 @@ public class Ex03_Binary_InputStream {
       // 실제로 읽은 바이트 수
       int readByte = 0;
       
-      // 읽기 (네이버 배너 이미지를 byte[] b에 저장하기)     
-      // 쓰기 (byte[] b의 내용을 banner.jpeg 파일로 보내기)
+      // 읽기 (다음 로고 이미지를 byte[] b에 저장하기)     
+      // 쓰기 (byte[] b의 내용을 daum.png 파일로 보내기)
       while((readByte = bin.read(b)) != -1) {
         bout.write(b, 0, readByte);
       }
