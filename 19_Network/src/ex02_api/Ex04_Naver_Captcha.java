@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 
-public class NaverCaptcha {
+public class Ex04_Naver_Captcha {
 
   private static final String CLIENT_ID = "RTJMyHb54a63lvLzPh7A";
   private static final String CLIENT_SECRET = "0xR9yv0oo3";
@@ -137,6 +137,7 @@ public class NaverCaptcha {
       Scanner sc = new Scanner(System.in);
       System.out.println("입력 >> ");
       String value = sc.next();
+      sc.close();
       
       String spec = "https://openapi.naver.com/v1/captcha/nkey?code=1&key=" + key + "&value=" + value;
       

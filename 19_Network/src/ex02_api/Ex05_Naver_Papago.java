@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 
-public class NaverPapago {
+public class Ex05_Naver_Papago {
 
   public static void main(String[] args) {
     
@@ -23,6 +23,7 @@ public class NaverPapago {
       Scanner sc = new Scanner(System.in);
       System.out.println("번역할 한국어 입력 >>> ");
       String text = sc.nextLine();
+      sc.close();
       
       String spec = "https://openapi.naver.com/v1/papago/n2mt";
       String clientId = "RTJMyHb54a63lvLzPh7A";
