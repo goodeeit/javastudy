@@ -141,29 +141,37 @@ public class MainWrapper {
       con.setRequestProperty("X-Naver-Client-Id", clientId);
       con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
       
+      int responseCode = con.getResponseCode();
+      if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new RuntimeException(responseCode + " 발생");
+      }
       
+      reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
       
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+      StringBuilder sb = new StringBuilder();
+      String line = null;
+      while((line = reader.readLine()) != null) {
+        sb.append(line);
+      }
+      
+      System.out.println(sb.toString());
+      
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        if(reader != null) reader.close();
+        if(con != null) con.disconnect();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } 
     
   }
   
-  
-  
-  
-  
-  
-  
-  
   public static void main(String[] args) {
-    ex01();
+//    ex01();
+    ex02();
   }
   
 }
