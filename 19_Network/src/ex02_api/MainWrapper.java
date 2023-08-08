@@ -12,6 +12,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class MainWrapper {
 
   public static void ex01() {
@@ -151,10 +154,21 @@ public class MainWrapper {
       StringBuilder sb = new StringBuilder();
       String line = null;
       while((line = reader.readLine()) != null) {
-        sb.append(line);
+        sb.append(line + "\n");
       }
       
-      System.out.println(sb.toString());
+      JSONObject obj = new JSONObject(sb.toString());
+      JSONArray items = obj.getJSONArray("items");
+      for(int i = 0, length = items.length(); i < length; i++) {
+        JSONObject item = items.getJSONObject(i);
+        System.out.println((i + 1) + "번째 블로그 검색 결과");
+        System.out.println("제목: " + item.getString("title"));
+        System.out.println("링크: " + item.getString("link"));
+        System.out.println("요약: " + item.getString("description"));
+        System.out.println("블로거: " + item.getString("bloggername"));
+        System.out.println("블로거링크: " + item.getString("bloggerlink"));
+        System.out.println("작성일: " + item.getString("postdate"));
+      }
       
     } catch (Exception e) {
       System.out.println(e.getMessage());
