@@ -1,7 +1,9 @@
 package ex04_text_copy;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -43,6 +45,39 @@ public class MainWrapper {
     
     // 문제2. C:/storage/alphabet.txt 파일을 복사하여 C:/storage/alphabet2.txt 파일을 만드시오.
     
+    // 디렉터리 File 객체
+    File dir = new File("C:/storage");
+    if(dir.exists() == false) {
+      dir.mkdirs();
+    }
+    
+    // 원본 File 객체
+    File src = new File(dir, "alphabet.txt");
+    
+    // 복사본 File 객체
+    File cp = new File(dir, "alphabet2.txt");
+    
+    // try-catch-resources
+    try (BufferedReader br = new BufferedReader(new FileReader(src));
+         BufferedWriter bw = new BufferedWriter(new FileWriter(cp))) {
+      
+      // 복사 단위 5 char
+      char[] cbuf = new char[5];
+      
+      // 실제로 읽은 char 개수
+      int readChar = 0;
+      
+      // 복사
+      while((readChar = br.read(cbuf)) != -1) {
+        bw.write(cbuf, 0, readChar);
+      }
+      
+      // 결과 메시지
+      System.out.println(cp.getPath() + " 파일 생성 완료");
+      
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     
   }
   
