@@ -1,6 +1,6 @@
 package ex01_web;
 
-public class Ex04_Text_Read {
+public class Ex04_Text_Reader {
 
   public static void main(String[] args) {
     
