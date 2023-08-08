@@ -1,6 +1,16 @@
 package ex01_Stream;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -102,15 +112,96 @@ public class MainWrapper {
     
   }
   
+  public static void ex06() {
+    
+    // 컬렉션(Collection) -> Stream
+    
+    // List -> Stream
+    List<String> list = Arrays.asList("봄", "여름", "가을", "겨울");
+    Stream<String> stream = list.stream();
+    stream.forEach((t) -> System.out.println(t));
+    
+    // Set -> Stream
+    Set<String> set = new HashSet<String>(Arrays.asList("봄", "여름", "가을", "겨울"));
+    set.stream().forEach((t) -> System.out.println(t));
+    
+  }
   
+  public static void ex07() {
+    
+    // 파일(입출력 스트림) -> Stream
+    
+    File file = new File("src/ex01_Stream/hello.txt");  // new File("hello.txt")도 가능함(동일한 곳에 있기 때문에)
+    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+      
+      // Stream 생성
+      Stream<String> stream = reader.lines();
+      
+      // forEach() 호출
+      StringBuilder sb = new StringBuilder();
+      stream.forEach((line) -> sb.append(line + "\n"));
+      
+      // 확인
+      System.out.println(sb.toString());
+      
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+    
+  }
   
+  public static void ex08() {
+    
+    // Path를 이용한 Stream 처리
+    
+    try {
+      Path path = Paths.get("src/ex01_Stream/hello.txt");
+      Stream<String> stream = Files.lines(path);
+      stream.forEach((line) -> System.out.println(line));
+      stream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public static void ex09() {
+    
+    // 디렉터리에 저장된 파일 목록 -> Stream
+    
+    File dir = new File("C:/Program Files");
+    File[] files = dir.listFiles();
+    Stream<File> stream = Arrays.stream(files);
+    stream.forEach((file) -> System.out.println(file.getPath()));
+    
+  }
+  
+  public static void ex10() {
+    
+    // Path를 이용한 Stream 처리
+    
+    try {
+      Path path = Paths.get("C:/Program Files");
+      Stream<Path> stream = Files.list(path);
+      stream.forEach((p) -> System.out.println(p.getFileName()));
+      stream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+  }
   
   public static void main(String[] args) {
 //    ex01();
 //    ex02();
 //    ex03();
 //    ex04();
-    ex05();
+//    ex05();
+//    ex06();
+//    ex07();
+//    ex08();
+//    ex09();
+    ex10();
   }
 
 }
