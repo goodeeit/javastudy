@@ -1,4 +1,4 @@
-package ex02_insert;
+package ex05_select;
 
 public class Ex01_selectOne {
 
