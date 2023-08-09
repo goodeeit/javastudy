@@ -1,14 +1,17 @@
 package ex03_intermedia;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class MainWrapper {
 
   public static void ex01() {
     
-    // 필터 : 원하는 요소만 사용
+    // 필터 (원하는 요소만 사용)
     
     // List
     List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
@@ -22,7 +25,7 @@ public class MainWrapper {
 
   public static void ex02() {
     
-    // 필터
+    // 필터 (원하는 요소만 사용)
     
     // List
     List<Person> list = Arrays.asList(
@@ -59,7 +62,7 @@ public class MainWrapper {
   
   public static void ex04() {
     
-    // 변환
+    // 변환 (값을 바꿈)
     
     // List
     List<Person> list = Arrays.asList(
@@ -69,12 +72,44 @@ public class MainWrapper {
         new Person("숙자", 15)
     );
     
+    // 필터 + 변환
     List<Person> adult = list.stream()
         .filter((person) -> person.getAge() >= 20)
         .map((person) -> new Person(person.getName() + "님", person.getAge() + 1))
         .collect(Collectors.toList());
     
     System.out.println(adult);
+    
+  }
+  
+  public static void ex05() {
+    
+    // distinct (중복된 요소 제거)
+    
+    IntStream.of(1, 1, 2, 2, 3, 3)
+      .distinct()
+      .forEach((number) -> System.out.println(number));
+    
+  }
+  
+  public static void ex06() {
+    
+    // sorted (전달된 Comparator 또는 사전 편찬 순으로 정렬된 스트림을 반환)
+    IntStream.of(3, 1, 6, 5, 2, 4)
+      .sorted()  // 오름차순 정렬
+      .forEach((number) -> System.out.println(number));
+    
+    System.out.println();
+    
+    Stream.of("google", "daum", "naver")
+      .sorted()  // 사전순으로 정렬
+      .forEach(word -> System.out.println(word));
+    
+    System.out.println();
+    
+    Stream.of("google", "daum", "naver")
+      .sorted(Comparator.comparing(word -> word.length()))  // 글자수로 정렬
+      .forEach(word -> System.out.println(word));
     
   }
   
