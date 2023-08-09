@@ -3,7 +3,6 @@ package ex02_terminal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -68,22 +67,32 @@ public class MainWrapper {
     // List
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
+    
     // T reduce(T identity, BinaryOperator<T> accumulator);
     int total1 = numbers.stream()
                         .reduce(0, (a, b) -> a + b);  // 스트림 요소가 없는 경우 0을 반환
     System.out.println(total1);
     
-    // Optional<T> reduce(BinaryOperator<T> accumulator);
-    int total2 = numbers.stream()
-                        .reduce(Integer::sum)
-                        .get();  // class Integer { public static int sum(int a, int b) { return a + b; } }
-                                                               // 스트림 요소가 없는 경우 NoSuchElementException 발생
-    System.out.println(total2);
     
     // Optional<T> reduce(BinaryOperator<T> accumulator);
-    Optional<Integer> opt = numbers.stream().reduce((a, b) -> a + b);
-    int total3 = opt.get();
+    Optional<Integer> opt = numbers.stream()
+                                   .reduce((a, b) -> a + b);
+    int total2 = opt.get();  // Optinal로 감싼 값을 꺼내는 get() 메소드
+    System.out.println(total2);
+    
+    
+    // Optional<T> reduce(BinaryOperator<T> accumulator);
+    int total3 = numbers.stream()
+                        .reduce(Integer::sum)
+                        .get();// reduce의 결과가 Optional이므로 값을 빼기 위해 get() 메소드를 추가한다.
     System.out.println(total3);
+
+    // Integer::sum은 Integer 클래스의 sum 메소드를 호출함을 의미한다.
+    // class Integer { 
+    //   public static int sum(int a, int b) {
+    //     return a + b;
+    //   }
+    // }
     
   }
   

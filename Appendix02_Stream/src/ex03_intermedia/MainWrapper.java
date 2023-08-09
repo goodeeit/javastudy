@@ -92,6 +92,16 @@ public class MainWrapper {
       .distinct()
       .forEach((number) -> System.out.println(number));
     
+    // Person 객체의 중복 검사를 위해서는 Person 클래스에 equals 메소드의 오버라이딩이 필요하다.
+    List<Person> people = Arrays.asList(
+        new Person("이정숙", 15),
+        new Person("이정숙", 15),
+        new Person("김영철", 16),
+        new Person("김영철", 16)
+    );
+    people.stream()
+      .distinct()
+      .forEach((person) -> System.out.println(person.getName() + ", " + person.getAge()));
   }
   
   public static void ex06() {
@@ -105,13 +115,13 @@ public class MainWrapper {
     
     Stream.of("google", "daum", "naver")
       .sorted()  // 사전순으로 정렬
-      .forEach(word -> System.out.println(word));
+      .forEach((word) -> System.out.println(word));
     
     System.out.println();
     
     Stream.of("google", "daum", "naver")
-      .sorted(Comparator.comparing(word -> word.length()))  // 글자수로 정렬
-      .forEach(word -> System.out.println(word));
+      .sorted(Comparator.comparing((word) -> word.length()))  // 글자수로 정렬
+      .forEach((word) -> System.out.println(word));
     
   }
   
@@ -119,7 +129,9 @@ public class MainWrapper {
 //    ex01();
 //    ex02();
 //    ex03();
-    ex04();
+//    ex04();
+//    ex05();
+    ex06();
   }
 
 }
