@@ -1,4 +1,4 @@
-package ex03_intermedia;
+package ex02_terminal;
 
 public class Person {
 
