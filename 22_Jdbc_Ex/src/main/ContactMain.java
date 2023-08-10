@@ -1,10 +1,16 @@
-package view;
+package main;
 
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
 import controller.ContactController;
+import view.DeleteView;
+import view.DetailView;
+import view.InsertView;
+import view.ListView;
+import view.UpdateView;
+import view.View;
 
 // ContactMain -> ContactController -> ContactService -> ContactDao -> DB
 
@@ -42,13 +48,11 @@ public class ContactMain {
         JOptionPane.showMessageDialog(null, "잘못된 입력입니다. 다시 선택하세요.");
       }
 
-      Map<String, Object> map = null;
       if(view != null) {
-        map = view.display();
+        Map<String, Object> map = view.display();
+        String message = contactController.request(choice, map);
+        JOptionPane.showMessageDialog(null, message);
       }
-      
-      String message = contactController.request(choice, map);
-      JOptionPane.showMessageDialog(null, message);
       
     }
     
