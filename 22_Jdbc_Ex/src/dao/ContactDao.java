@@ -1,5 +1,15 @@
 package dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Properties;
+
+import dto.ContactDto;
+
 /*
  * DAO
  * 1. Database Access Object
@@ -23,6 +33,126 @@ public class ContactDao {
     return dao;
   }
 
+  private Connection con;
+  private PreparedStatement ps;
+  private ResultSet rs;
+  
+  private Connection getConnection() {
+    
+    try {
+      
+      Class.forName("oracle.jdbc.OracleDriver");
+      
+      Properties p = new Properties();
+      p.load(new BufferedReader(new FileReader("src/db.properties"))); 
+      
+      con = DriverManager.getConnection(p.getProperty("url"), p.getProperty("user"), p.getProperty("password"));
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
+    return con;
+    
+  }
+  
+  private void close() {
+    try {
+      if(rs != null) rs.close();
+      if(ps != null) ps.close();
+      if(con != null) con.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
+  /**
+   * 삽입 메소드<br>
+   * @param contactDto 삽입할 연락처 정보(name, tel, email, address)
+   * @return insertCount 삽입된 행(Row)의 개수, 1이면 삽입 성공, 0이면 삽입 실패
+   */
+  public int insert(ContactDto contactDto) {
+    
+    int insertCount = 0;
+    
+    try {
+      
+      con = getConnection();
+      String sql = "INSERT INTO CONTACT_T(CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT) VALUES(CONTACT_SEQ.NEXTVAL, ?, ?, ?, ?, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))";
+      ps = con.prepareStatement(sql);
+      ps.setString(1, contactDto.getName());
+      ps.setString(2, contactDto.getTel());
+      ps.setString(3, contactDto.getEmail());
+      ps.setString(4, contactDto.getAddress());
+      insertCount = ps.executeUpdate();
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    return insertCount;
+    
+  }
+  
+  /**
+   * 수정 메소드<br>
+   * @param contactDto 수정할 연락처 정보(contact_no, name, tel, email, address)
+   * @return updateCount 수정된 행(Row)의 개수, 1이면 수정 성공, 0이면 수정 실패
+   */
+  public int update(ContactDto contactDto) {
+    
+    int updateCount = 0;
+    
+    try {
+      
+      con = getConnection();
+      String sql = "UPDATE CONTACT_T SET NAME = ?, TEL = ?, EMAIL = ?, ADDRESS = ? WHERE CONTACT_NO = ?";
+      ps = con.prepareStatement(sql);
+      ps.setString(1, contactDto.getName());
+      ps.setString(2, contactDto.getTel());
+      ps.setString(3, contactDto.getEmail());
+      ps.setString(4, contactDto.getAddress());
+      ps.setInt(5, contactDto.getContact_no());
+      updateCount = ps.executeUpdate();
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    return updateCount;
+    
+  }
+  
+  /**
+   * 삭제 메소드<br>
+   * @param contact_no 삭제할 연락처 번호
+   * @return deleteCount 삭제된 행(Row)의 개수, 1이면 삭제 성공, 0이면 삭제 실패
+   */
+  public int delete(int contact_no) {
+    
+    int deleteCount = 0;
+    
+    try {
+      
+      con = getConnection();
+      String sql = "DELETE FROM CONTACT_T WHERE CONTACT_NO = ?";
+      ps = con.prepareStatement(sql);
+      ps.setInt(1, contact_no);
+      deleteCount = ps.executeUpdate();
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    return deleteCount;
+    
+  }
   
   
   
