@@ -6,11 +6,11 @@ import javax.swing.JOptionPane;
 
 import controller.ContactController;
 
-// ContactView -> ContactController -> ContactService -> ContactDao -> DB
+// ContactMain -> ContactController -> ContactService -> ContactDao -> DB
 
-public class ContactView {
+public class ContactMain {
 
-  public void display() {
+  public static void main(String[] args) {
     
     ContactController contactController = new ContactController();
     

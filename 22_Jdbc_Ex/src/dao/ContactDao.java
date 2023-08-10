@@ -19,6 +19,8 @@ import dto.ContactDto;
  * 3. 하나의 객체만 만들어서 사용하는 Singleton Pattern으로 객체를 생성한다.
  */
 
+// ContactMain -> ContactController -> ContactService -> ContactDao -> DB
+
 public class ContactDao {
 
   /*
