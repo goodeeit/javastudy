@@ -23,17 +23,16 @@ public class Freelance extends Employee {
 	public void setWorkingHours(int workingHours) {
 		this.workingHours = workingHours;
 	}
-	@Override
-	public void info() {
-	  // [사원번호:0002]
-	  // [사원명:구마적]
-	  // [시간당 임금:20000원]
-	  // [근무한 시간:160시간]
-	  // [급여:3104000원]
-	}
-	@Override
-	public int getPay() {
-		return 0;  // 프리랜서 급여는 시간당 임금 * 근무한 시간으로 계산한다. 세금은 편의상 3%로 한다.
-	}
+  @Override
+  public void info() {
+    super.info();  // Employee의 info 메소드 호출
+    System.out.println("  [시간당 임금:" + hourlyWage + "원]");
+    System.out.println("  [근무한 시간:" + workingHours + "시간]");
+    System.out.println("  [급여:" + getPay() + "원]");
+  }
+  @Override
+  public int getPay() {
+    return (int)(hourlyWage * workingHours * 0.97);  // 프리랜서 급여는 시간당 임금 * 근무한 시간으로 계산한다. 세금은 편의상 3%로 한다.
+  }
 	
 }

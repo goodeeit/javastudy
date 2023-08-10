@@ -17,18 +17,18 @@ public class ContactController {
    * 요청 처리 메소드<br>
    * @param choice 1,2,3,4,5 중 하나
    * @param map 사용자가 입력한 값
-   *            choice == 1 : name, tel, email, address
-   *            choice == 2 : contact_no, name, tel, email, address
-   *            choice == 3 : contact_no
+   *            choice == 1 : map(name, tel, email, address)
+   *            choice == 2 : map(contact_no, name, tel, email, address)
+   *            choice == 3 : map(contact_no)
    *            choice == 4 : null
-   *            choice == 5 : contact_no
+   *            choice == 5 : map(contact_no)
    * @return message 처리 결과 메시지
    */
   public String request(String choice, Map<String, Object> map) {
     
     System.out.println("Controller::" + map);
     
-    String message = "";
+    String message = "";  // 응답 메시지
     
     switch(choice) {
     case "1":
