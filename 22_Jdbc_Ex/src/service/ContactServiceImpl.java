@@ -15,6 +15,7 @@ public class ContactServiceImpl implements ContactService {
   
   @Override
   public int insert(Map<String, Object> map) {
+    System.out.println("Service::" + map);
     // Map -> ContactDto
     ContactDto contactDto = new ContactDto();
     contactDto.setName((String)map.get("name"));
@@ -27,6 +28,7 @@ public class ContactServiceImpl implements ContactService {
 
   @Override
   public int update(Map<String, Object> map) {
+    System.out.println("Service::" + map);
     // Map -> ContactDto
     ContactDto contactDto = new ContactDto();
     contactDto.setContact_no((int)map.get("contact_no"));
@@ -40,6 +42,7 @@ public class ContactServiceImpl implements ContactService {
 
   @Override
   public int delete(Map<String, Object> map) {
+    System.out.println("Service::" + map);
     // Map에서 contact_no 추출
     int contact_no = (int)map.get("contact_no");
     // 실행 + 결과반환
@@ -54,6 +57,7 @@ public class ContactServiceImpl implements ContactService {
 
   @Override
   public ContactDto selectContactByNo(Map<String, Object> map) {
+    System.out.println("Service::" + map);
     // Map에서 contact_no 추출
     int contact_no = (int)map.get("contact_no");
     // 실행 + 결과반환

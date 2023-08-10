@@ -1,7 +1,9 @@
 package controller;
 
+import java.util.List;
 import java.util.Map;
 
+import dto.ContactDto;
 import service.ContactService;
 import service.ContactServiceImpl;
 
@@ -20,26 +22,44 @@ public class ContactController {
    *            choice == 3 : contact_no
    *            choice == 4 : null
    *            choice == 5 : contact_no
+   * @return message 처리 결과 메시지
    */
-  public void request(String choice, Map<String, Object> map) {
+  public String request(String choice, Map<String, Object> map) {
+    
+    System.out.println("Controller::" + map);
+    
+    String message = "";
     
     switch(choice) {
     case "1":
-      contactService.insert(map);
+      int insertCount = contactService.insert(map);
+      message = insertCount + "개 연락처가 등록되었습니다.";
       break;
     case "2":
-      contactService.update(map);
+      int updateCount = contactService.update(map);
+      message = updateCount + "개 연락처가 수정되었습니다.";
       break;
     case "3":
-      contactService.delete(map);
+      int deleteCount = contactService.delete(map);
+      message = deleteCount + "개 연락처가 삭제되었습니다.";
       break;
     case "4":
-      contactService.selectList();
+      List<ContactDto> list = contactService.selectList();
+      for(ContactDto contactDto : list) {
+        message += contactDto.toString() + "\n";
+      }
       break;
     case "5":
-      contactService.selectContactByNo(map);
+      ContactDto contactDto = contactService.selectContactByNo(map);
+      if(contactDto == null) {
+        message = "조회된 결과가 없습니다.";
+      } else {
+        message = "조회결과: " + contactDto.toString();
+      }
       break;
     }
+    
+    return message;
     
   }
   

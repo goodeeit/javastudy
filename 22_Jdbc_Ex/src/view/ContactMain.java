@@ -47,7 +47,8 @@ public class ContactMain {
         map = view.display();
       }
       
-      contactController.request(choice, map);
+      String message = contactController.request(choice, map);
+      JOptionPane.showMessageDialog(null, message);
       
     }
     
