@@ -110,13 +110,13 @@ public class ContactDao {
   public int update(ContactDto contactDto) {
     
     System.out.println("Dao::" + contactDto);
-    
+        
     int updateCount = 0;
     
     try {
       
       con = getConnection();
-      String sql = "UPDATE CONTACT_T SET NAME = ?, TEL = ?, EMAIL = ?, ADDRESS = ? WHERE CONTACT_NO = ?";
+      String sql = "UPDATE CONTACT_T SET NAME = ?, TEL = ?, EMAIL = ?, ADDRESS = ? WHERE CONTACT_NO = ?";    
       ps = con.prepareStatement(sql);
       ps.setString(1, contactDto.getName());
       ps.setString(2, contactDto.getTel());
