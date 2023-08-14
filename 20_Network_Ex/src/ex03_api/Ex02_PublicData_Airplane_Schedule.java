@@ -11,6 +11,12 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 public class Ex02_PublicData_Airplane_Schedule {
 
   /*
@@ -93,16 +99,38 @@ public class Ex02_PublicData_Airplane_Schedule {
   }
   
   /*
-   * 
+   * org.w3c.dom.Document : XML문서
+   * org.w3c.dom.Node     : 구성요소(Element의 부모)
+   * org.w3c.dom.Element  : 구성요소(Node의 자식)
    */
   public static void ex02() {
     
-    
-    
+    try {
+      
+      // File
+      File dir = new File("C:/storage");
+      File file = new File(dir, "국제선운항스케쥴.xml");
+      
+      // Document
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document document = builder.parse(file);
+      
+      // root (최상위 요소)
+      Element root = document.getDocumentElement();
+      System.out.println(root.getNodeName());
+      
+      
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
   }
   
   public static void main(String[] args) {
-    ex01();
+//    ex01();
+    ex02();
   }
 
 }
