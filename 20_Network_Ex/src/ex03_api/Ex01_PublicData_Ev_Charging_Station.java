@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class MainWrapper {
+public class Ex01_PublicData_Ev_Charging_Station {
 
   public static void main(String[] args) {
     
